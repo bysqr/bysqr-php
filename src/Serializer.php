@@ -75,7 +75,7 @@ class Serializer
     {
         $words = explode(' ', str_replace(['-', '_'], ' ', $value));
 
-        $studlyWords = array_map(fn ($word) => mb_ucfirst($word), $words);
+        $studlyWords = array_map(fn ($word) => ucfirst($word), $words);
 
         return implode($studlyWords);
     }
