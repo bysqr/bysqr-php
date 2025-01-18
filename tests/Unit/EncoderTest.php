@@ -27,16 +27,16 @@ it('should encode to svg', function () {
     $svg = Encoder::make(createPay())->toSvg();
 
     expect($svg)->toStartWith('<svg');
-})->skip(fn () => Binary::unsupported());
+})->skip(fn () => Binary::unsupported(), "unsupported architecture");
 
 it('should encode to png', function () {
     $svg = Encoder::make(createPay())->toPng();
 
     expect($svg)->toStartWith('data:image/png;base64,');
-})->skip(fn () => Binary::unsupported());
+})->skip(fn () => Binary::unsupported(), "unsupported architecture");
 
 it('should encode to jpeg', function () {
     $svg = Encoder::make(createPay())->toJpeg();
 
     expect($svg)->toStartWith('data:image/jpeg;base64,');
-})->skip(fn () => Binary::unsupported());
+})->skip(fn () => Binary::unsupported(), "unsupported architecture");
