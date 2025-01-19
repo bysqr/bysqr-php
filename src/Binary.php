@@ -59,8 +59,20 @@ class Binary
         $uname = php_uname();
 
         if (str_contains($uname, "Darwin")) {
-            if (str_contains(php_uname("m"), 'arm64')) {
-                return new static(realpath(__DIR__.'/../bin/bysqr-darwin-arm64'));
+            $arch = php_uname("m");
+
+            if (str_contains($arch, 'arm64')) {
+                return new static(realpath(__DIR__.'/../bin/bysqr-darwin-aarch64-headless'));
+            } else if (str_contains($arch, 'x86')) {
+                return new static(realpath(__DIR__.'/../bin/bysqr-darwin-x86_64-headless'));
+            }
+        } else if (str_contains($uname, "Linux")) {
+            $arch = php_uname("m");
+
+            if (str_contains($arch, 'arm64')) {
+                return new static(realpath(__DIR__.'/../bin/bysqr-linux-aarch64-headless'));
+            } else if (str_contains($arch, 'x86')) {
+                return new static(realpath(__DIR__.'/../bin/bysqr-linux-x86_64-headless'));
             }
         }
 
