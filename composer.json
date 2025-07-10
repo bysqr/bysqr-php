@@ -2,7 +2,6 @@
     "name": "bysqr/bysqr",
     "type": "library",
     "license": "MIT",
-    "version": "0.0.1",
     "autoload": {
         "psr-4": {
             "Bysqr\\": "src/"
@@ -10,7 +9,7 @@
     },
     "require": {
         "php": "^8.2",
-        "symfony/process": "^7.2"
+        "symfony/process": "^6.0|^7.0"
     },
     "require-dev": {
         "pestphp/pest": "^3.7",
